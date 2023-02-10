@@ -11,12 +11,46 @@ canvas {
 :root {
   --dark-bg: rgba(15, 15, 15, 0.95);
   --spacing: 350px;
-
+  --forestgreen: rgb(34,139,34);
+  --junglegreen: rgb(41,171,135);
+  --green: rgb(76,187,23);
+  --rainforest: rgb(0, 117, 94);
+  --myrtle: rgb(49, 120, 115);
+  --persian: rgb(0, 166, 147);
   font-family: brandon-grotesque, sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
+@keyframes background-pan {
+  from {
+    background-position: 0% center;
+  }
+  
+  to {
+    background-position: -200% center;
+  }
+}
+
+@keyframes scale {
+  from, to {
+    transform: scale(0);
+  }
+  
+  50% {
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  
+  to {
+    transform: rotate(180deg);
+  }
+}
 
 main {
   width: 100vw;
@@ -31,7 +65,7 @@ main {
   grid-template-columns: repeat(12, 1fr);
 }
 
-h1, h2, h3 {
+ h2, h3 {
   font-family: elevon, sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -44,6 +78,41 @@ blockquote{
   -webkit-text-fill-color: black;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;
+}
+
+h1{
+  color: white;
+  font-family: "Rubik", sans-serif;
+  font-size: clamp(1.2em, 1vw, 3em);
+  font-weight: 400;
+  margin: 0px;
+  padding: 10px;
+  text-align: justify;
+}
+
+h1 > .magic {
+  display: inline-block;
+  position: relative;
+}
+
+h1 > .magic > .magic-text {
+  animation: background-pan 3s linear infinite;
+  background: linear-gradient(
+    to right,
+    var(--green),
+    var(--forestgreen),
+    var(--green),
+    var(--junglegreen),
+    var(--myrtle),
+    var(--rainforest),
+    var(--persian),
+    var(--forestgreen),
+    var(--junglegreen)
+  );
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
 }
 
 canvas {
